@@ -6,7 +6,7 @@ public class OperationsList {
     private static Map<String, CalculationStrategy> StrategyList = new HashMap<>();
 
     //new calculate operations can easily be added in this method
-    private static void populateOperationsList () {
+    static  {
         StrategyList.put(Operators.Addition, new OperationAdd());
         StrategyList.put(Operators.Subtract, new OperationSubtract());
         StrategyList.put(Operators.Multiply, new OperationMultiply());
@@ -15,7 +15,6 @@ public class OperationsList {
     }
 
     public static CalculationStrategy getStrategyOperation (String operator) {
-        populateOperationsList();
         return StrategyList.get(operator);
     }
 }

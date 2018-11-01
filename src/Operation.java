@@ -8,14 +8,11 @@ public class Operation {
     private double leftOperand;
     private double rightOperand;
     private String operator;
-    private CalculationStrategy operationStrategy;
 
     public Operation (double leftOp, String op, double rightOp) {
         leftOperand = leftOp;
         rightOperand = rightOp;
         operator = op;
-
-        operationStrategy = OperationsList.getStrategyOperation(op);
     }
 
     public double getLeftOperand() {
@@ -42,16 +39,8 @@ public class Operation {
         return this.operator;
     }
 
-    public CalculationStrategy getOperationStrategy() {
-        return operationStrategy;
-    }
-
-    public void setOperationStrategy(CalculationStrategy operationStrategy) {
-        this.operationStrategy = operationStrategy;
-    }
-
     public double performOperation () {
-        Context context = new Context(operationStrategy);
+        Context context = new Context(OperationsList.getStrategyOperation(operator));
         return context.executeStrategy(getLeftOperand(), getRightOperand());
     }
 }
