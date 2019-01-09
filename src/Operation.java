@@ -43,4 +43,9 @@ public class Operation {
         Context context = new Context(OperationsList.getStrategyOperation(operator));
         return context.executeStrategy(getLeftOperand(), getRightOperand());
     }
+
+    @Override
+    public String toString() {
+        return leftOperand + " " + operator + " " + rightOperand;
+    }
 }

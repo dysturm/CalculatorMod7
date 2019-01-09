@@ -13,6 +13,28 @@ public class Calculator {
         opList.add(op);
     }
 
+    public static void printHistory () { for (Operation op : opList) System.out.println(op.toString());  }
+
+    public static ArrayList<Operation> getHistory () { return opList; }
+
+    public static void clearHistory () { opList.clear(); }
+
+    public static boolean printOp (int index) {
+        if (index >= 0 && index < opList.size()) {
+            System.out.println(opList.get(index).toString());
+            return true;
+        } else
+            return false;
+    }
+
+    public static boolean clearOp (int index) {
+        if (index >= 0 && index < opList.size()) {
+            opList.remove(index);
+            return true;
+        } else
+            return false;
+    }
+
     public static Operation parseExpression(String expression){
 
         if (expression == null || expression.trim().equals("")){
